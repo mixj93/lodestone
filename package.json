@@ -1,0 +1,16 @@
+{
+  "name": "lodestone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "all": "node index"
+  },
+  "keywords": [],
+  "author": "mixj93 <lixueli93@gmail.com> (http://mixj93.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "4.17.11",
+    "puppeteer": "1.8.0"
+  }
+}
