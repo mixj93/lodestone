@@ -1,0 +1,15 @@
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    [
+      "import", {
+        "libraryName": "antd",
+        "libraryDirectory": "es"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,53 @@
+@import "../node_modules/antd/dist/antd.less"; // 引入官方提供的 less 样式入口文件
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  .ant-layout {
+    min-height: 100%;
+  }
+}
+
+.site-header {
+  padding: 0 20px;
+  height: 48px;
+  background-color: #554131;
+
+  .title {
+    color: #fcd144;
+    line-height: 48px;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+  }
+}
+
+.site-wrapper {
+  width: 960px;
+  max-width: 100%;
+  margin: 40px auto;
+
+  .card-select {
+    .ant-select-selection__clear {
+      font-size: 20px;
+      top: 18px;
+
+      i {
+        font-style: normal;
+      }
+    }
+
+    .ant-select-selection__choice__remove {
+      top: 9px;
+    }
+
+    .ant-select-lg {
+      font-size: 14px;
+
+      .ant-select-selection__choice__content {
+        line-height: 28px;
+      }
+    }
+  }
+}
