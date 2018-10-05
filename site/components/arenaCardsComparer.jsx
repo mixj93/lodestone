@@ -1,24 +1,27 @@
 import * as React from 'react';
 import { Radio, Select, Tag, Card, Row, Col } from 'antd';
 import * as _ from 'lodash';
+import { getPingyinInit } from '../utils/pingyin';
 import { CARD_CLASSES, CLASS_INFO, CLASS_DATA } from '../data';
 
 class ArenaCardsComparer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      choosedClass: 'druid',
-      searchedData: [],
-      choosedCards: [],
-      choosedCardsData: []
-    };
+    this.onCardSearch = _.debounce(this.onCardSearch, 500);
   }
+
+  state = {
+    choosedClass: 'druid',
+    searchedData: [],
+    choosedCards: [],
+    choosedCardsData: []
+  };
 
   onClassChange = (e) => {
     this.setState({
+      choosedClass: e.target.value,
       searchedData: [],
       choosedCards: [],
-      choosedClass: e.target.value,
       choosedCardsData: []
     });
   }
@@ -26,8 +29,10 @@ class ArenaCardsComparer extends React.Component {
   onCardSearch = (value) => {
     let result = [];
     if (value) {
-      result = _.filter(CLASS_DATA[this.state.choosedClass].lightforge, function(c) {
-        return c.name.indexOf(value) > -1;
+      result = _.filter(CLASS_DATA[this.state.choosedClass].lightforge, c => {
+        let cardName = c.name;
+        let cardPingyin = getPingyinInit(cardName);
+        return (cardName.indexOf(value) > -1 || cardPingyin.indexOf(value) > -1);
       });
     }
     this.setState({
@@ -52,7 +57,7 @@ class ArenaCardsComparer extends React.Component {
   }
 
   render() {
-    let { choosedClass, searchedData, choosedCardsData, choosedCards } = this.state;
+    const { choosedClass, searchedData, choosedCardsData, choosedCards } = this.state;
     return (
       <div>
         <div style={{'textAlign': 'center'}}>
@@ -70,8 +75,9 @@ class ArenaCardsComparer extends React.Component {
             value={choosedCards}
             onSearch={this.onCardSearch}
             onChange={this.onCardChange}
+            filterOption={false}
           >
-            {searchedData.map((sd, i) => (
+            {searchedData.map((sd) => (
               <Select.Option key={sd.name} value={sd.name}>
                 <Tag color="#108ee9">{sd.cost}</Tag>
                 {sd.name}&nbsp;
@@ -79,7 +85,6 @@ class ArenaCardsComparer extends React.Component {
               </Select.Option>
             ))}
           </Select>
-          <p>注：卡牌评级为1级~7级，1级最佳，7级最差。</p>
         </div>
         <div style={{margin: '40px'}}>
           <Row gutter={16}>
