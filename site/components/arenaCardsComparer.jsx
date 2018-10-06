@@ -48,7 +48,8 @@ class ArenaCardsComparer extends React.Component {
       let index = _.findIndex(classData.lightforge, { 'name': cardName });
       let lf = classData.lightforge[index];
       let ha = classData.heartharena[index];
-      choosedCardsData.push({'lightforge': lf, 'heartharena': ha});
+      let yd = _.find(classData.yingdi, (o) => o.name === cardName);
+      choosedCardsData.push({'lightforge': lf, 'heartharena': ha, 'yingdi': yd});
     }
     this.setState({
       choosedCards: value,
@@ -93,6 +94,7 @@ class ArenaCardsComparer extends React.Component {
                 <Card title={`${ccd.lightforge.cost} ${ccd.lightforge.name} [${ccd.lightforge.class}]`} bordered={false}>
                   <p>Lightforge: {ccd.lightforge.grade}级/{ccd.lightforge.score}分{ccd.lightforge.copiesLowerValue && '/不建议多张'}</p>
                   <p>Hearthstone: {ccd.heartharena.grade}级/{ccd.heartharena.score}分{ccd.heartharena.copiesLowerValue && '/不建议多张'}{ccd.heartharena.lowHigh && `/${ccd.heartharena.lowHigh}该职业`}</p>
+                  {ccd.yingdi && <p>旅法师营地: {ccd.yingdi.catchRate}抓取率/{ccd.yingdi.score}分</p>}
                 </Card>
               </Col>
             ))}

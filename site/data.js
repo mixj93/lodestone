@@ -18,6 +18,16 @@ import * as lfShaman from '../data/lightforge-shaman.json';
 import * as lfWarlock from '../data/lightforge-warlock.json';
 import * as lfWarrior from '../data/lightforge-warrior.json';
 
+import * as ydDruid from '../data/yingdi-druid.json';
+import * as ydHunter from '../data/yingdi-hunter.json';
+import * as ydMage from '../data/yingdi-mage.json';
+import * as ydPaladin from '../data/yingdi-paladin.json';
+import * as ydPriest from '../data/yingdi-priest.json';
+import * as ydRogue from '../data/yingdi-rogue.json';
+import * as ydShaman from '../data/yingdi-shaman.json';
+import * as ydWarlock from '../data/yingdi-warlock.json';
+import * as ydWarrior from '../data/yingdi-warrior.json';
+
 
 export const CARD_CLASSES = [
   {
@@ -121,41 +131,60 @@ export const LF_SHAMAN = Object.values(lfShaman).slice(0, -1);
 export const LF_WARLOCK = Object.values(lfWarlock).slice(0, -1);
 export const LF_WARRIOR = Object.values(lfWarrior).slice(0, -1);
 
+export const YD_DRUID = Object.values(ydDruid).slice(0, -1);
+export const YD_HUNTER = Object.values(ydHunter).slice(0, -1);
+export const YD_MAGE = Object.values(ydMage).slice(0, -1);
+export const YD_PALADIN = Object.values(ydPaladin).slice(0, -1);
+export const YD_PRIEST = Object.values(ydPriest).slice(0, -1);
+export const YD_ROGUE = Object.values(ydRogue).slice(0, -1);
+export const YD_SHAMAN = Object.values(ydShaman).slice(0, -1);
+export const YD_WARLOCK = Object.values(ydWarlock).slice(0, -1);
+export const YD_WARRIOR = Object.values(ydWarrior).slice(0, -1);
+
 export const CLASS_DATA = {
   'druid': {
     'heartharena': HA_DRUID,
-    'lightforge': LF_DRUID
+    'lightforge': LF_DRUID,
+    'yingdi': YD_DRUID
   },
   'hunter': {
     'heartharena': HA_HUNTER,
-    'lightforge': LF_HUNTER
+    'lightforge': LF_HUNTER,
+    'yingdi': YD_HUNTER
   },
   'mage': {
     'heartharena': HA_MAGE,
-    'lightforge': LF_MAGE
+    'lightforge': LF_MAGE,
+    'yingdi': YD_MAGE
   },
   'paladin': {
     'heartharena': HA_PALADIN,
-    'lightforge': LF_PALADIN
+    'lightforge': LF_PALADIN,
+    'yingdi': YD_PALADIN
   },
   'priest': {
     'heartharena': HA_PRIEST,
-    'lightforge': LF_PRIEST
+    'lightforge': LF_PRIEST,
+    'yingdi': YD_PRIEST
   },
   'rogue': {
     'heartharena': HA_ROGUE,
-    'lightforge': LF_ROGUE
+    'lightforge': LF_ROGUE,
+    'yingdi': YD_ROGUE
   },
   'shaman': {
     'heartharena': HA_SHAMAN,
-    'lightforge': LF_SHAMAN
+    'lightforge': LF_SHAMAN,
+    'yingdi': YD_SHAMAN
   },
   'warlock': {
     'heartharena': HA_WARLOCK,
-    'lightforge': LF_WARLOCK
+    'lightforge': LF_WARLOCK,
+    'yingdi': YD_WARLOCK
   },
   'warrior': {
     'heartharena': HA_WARRIOR,
-    'lightforge': LF_WARRIOR
+    'lightforge': LF_WARRIOR,
+    'yingdi': YD_WARRIOR
   }
 }

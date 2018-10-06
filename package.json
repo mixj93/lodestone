@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "spider": "node spiders/index",
+    "spider-all": "node spiders/trigger-all",
+    "spider-ha": "node spiders/trigger-ha",
+    "spider-lf": "node spiders/trigger-lf",
+    "spider-yd": "node spiders/trigger-yd",
     "clean": "rm -rf dist/",
     "start": "npm run clean && parcel site/index.html --no-cache",
     "build": "npm run clean && NODE_ENV=production parcel build site/index.html"

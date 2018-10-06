@@ -69,9 +69,7 @@ async function lightforge(cn) {
 
         let CARD_CRAGE_NAMES = ['赞', '棒', '超出平均', '平均', '低于平均', '烂', '极糟糕'];
         let cardGradeStr = card.parentElement.querySelector('.hasSubtitle').innerText.split('[')[0].split('+')[0].trim();
-        console.log('cardGradeStr:', cardGradeStr)
         let cardGrade = CARD_CRAGE_NAMES.indexOf(cardGradeStr) + 1;
-        console.log('cardGrade:', cardGrade)
         if (cardGrade === 0) {
           console.log(`${new Date()}  [lightforge] [${CLASS_NAMES[cn]}] WARNING: grade of [${cardName}] is 0 !!!`);
         }
