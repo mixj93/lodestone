@@ -10,7 +10,7 @@
     "spider-yd": "node spiders/trigger-yd",
     "clean": "rm -rf dist/",
     "start": "npm run clean && parcel site/index.html --no-cache",
-    "build": "npm run clean && NODE_ENV=production parcel build site/index.html"
+    "build": "npm run clean && NODE_ENV=production parcel build site/index.html && netlify-lambda build functions"
   },
   "keywords": [],
   "author": "mixj93 <lixueli93@gmail.com> (http://mixj93.com/)",
@@ -30,6 +30,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "less": "2.7.3",
+    "netlify-lambda": "0.4.0",
     "parcel-bundler": "1.9.7"
   }
 }
