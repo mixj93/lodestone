@@ -10,6 +10,7 @@
     "spider-yd": "node spiders/trigger-yd",
     "clean": "rm -rf dist/",
     "start": "npm run clean && parcel site/index.html --no-cache",
+    "start-server": "netlify-lambda serve functions",
     "build": "npm run clean && NODE_ENV=production parcel build site/index.html && netlify-lambda build functions"
   },
   "keywords": [],
