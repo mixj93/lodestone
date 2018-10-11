@@ -33,37 +33,6 @@ const _ = require("lodash");
 const classes = ["druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warlock", "warrior"];
 exports.classes = classes;
 
-const classMap = {
-  "druid": {
-    "displayName": "德鲁伊"
-  },
-  "hunter": {
-    "displayName": "猎人"
-  },
-  "mage": {
-    "displayName": "法师"
-  },
-  "paladin": {
-    "displayName": "圣骑士"
-  },
-  "priest": {
-    "displayName": "牧师"
-  },
-  "rogue": {
-    "displayName": "盗贼"
-  },
-  "shaman": {
-    "displayName": "萨满"
-  },
-  "warlock": {
-    "displayName": "术士"
-  },
-  "warrior": {
-    "displayName": "战士"
-  }
-};
-exports.classMap = classMap;
-
 const classData = {
   "druid": {
     "heartharena": haDruid,
@@ -121,31 +90,38 @@ exports.classData = classData;
 
 exports.handler = async (event, context) => {
   const cardName = event.queryStringParameters.name || "";
-  const className = event.queryStringParameters.class || "";
+  const queryClass = event.queryStringParameters.class || "";
 
-  if (cardName === "" || className === "") {
+  if (cardName === "" || queryClass === "") {
     return {
       statusCode: 400,
       body: `Please specify a card name and as class.`
     };
   }
 
-  if (classes.indexOf(className) === -1) {
+  if (classes.indexOf(queryClass) === -1) {
     return {
       statusCode: 404,
       body: `Class not found.`
     };
   }
 
-  let ha = _.find(classData[className].heartharena, { 'name': cardName });
-  let lf = _.find(classData[className].lightforge, { 'name': cardName });
-  let yd = _.find(classData[className].yingdi, { 'name': cardName });
+  let ha = _.find(classData[queryClass].heartharena, { 'name': cardName });
+  let lf = _.find(classData[queryClass].lightforge, { 'name': cardName });
+  let yd = _.find(classData[queryClass].yingdi, { 'name': cardName });
 
   if (!!!(ha || lf || yd)) {
     return {
       statusCode: 404,
       body: `Card(${cardName}) not found.`
     };
+  }
+
+  let cardClass = queryClass;
+  if (ha && ha.class) {
+    cardClass = ha.class;
+  } else if (lf && lf.class) {
+    cardClass = lf.class;
   }
 
   let cardRarity = "";
@@ -170,19 +146,19 @@ exports.handler = async (event, context) => {
 
   let ydScore = yd ? {
     "catchRate": yd.catchRate,
-    "score": yd.catchRate
+    "score": yd.score
   } : null;
 
   return {
     statusCode: 200,
     body: JSON.stringify({
-      name: cardName,
-      class: classMap[className].displayName,
-      rarity: cardRarity,
-      cost: lf && lf.cost,
-      heartharena: haScore,
-      lightforge: lfScore,
-      yingdi: ydScore
+      "name": cardName,
+      "class": cardClass,
+      "rarity": cardRarity,
+      "cost": lf && lf.cost,
+      "heartharena": haScore,
+      "lightforge": lfScore,
+      "yingdi": ydScore
     })
   };
 };

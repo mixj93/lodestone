@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Radio, Select, Tag, Card, Row, Col } from 'antd';
+import { Radio, Select, Tag, Card, Row, Col, Spin } from 'antd';
 import * as _ from 'lodash';
-import { getPingyinInit } from '../utils/pingyin';
-import { CARD_CLASSES, CLASS_INFO, CLASS_DATA } from '../data';
+import { CARD_CLASSES, CLASS_INFO } from '../data';
+import * as apis from '../apis';
 
 class ArenaCardsComparer extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class ArenaCardsComparer extends React.Component {
   }
 
   state = {
+    isSearchLoading: false,
     choosedClass: 'druid',
     searchedData: [],
     choosedCards: [],
@@ -26,31 +27,34 @@ class ArenaCardsComparer extends React.Component {
     });
   }
 
-  onCardSearch = (value) => {
-    let result = [];
+  onCardSearch = async (value) => {
     if (value) {
-      result = _.filter(CLASS_DATA[this.state.choosedClass].lightforge, c => {
-        let cardName = c.name;
-        let cardPingyin = getPingyinInit(cardName);
-        return (cardName.indexOf(value) > -1 || cardPingyin.indexOf(value) > -1);
+      this.setState({
+        searchedData: [],
+        isSearchLoading: true
+      });
+      let data = await apis.searchCards(value, this.state.choosedClass);
+      this.setState({
+        isSearchLoading: false,
+        searchedData: data
       });
     }
-    this.setState({
-      searchedData: result
-    });
   }
 
-  onCardChange = (value) => {
+  onCardChange = async (value) => {
+    let currentChoosedCardsData = this.state.choosedCardsData;
     let choosedCardsData = [];
-    let classData = CLASS_DATA[this.state.choosedClass];
+
     for (let i = 0; i < value.length; i++) {
-      let cardName = value[i];
-      let index = _.findIndex(classData.lightforge, { 'name': cardName });
-      let lf = classData.lightforge[index];
-      let ha = classData.heartharena[index];
-      let yd = _.find(classData.yingdi, (o) => o.name === cardName);
-      choosedCardsData.push({'lightforge': lf, 'heartharena': ha, 'yingdi': yd});
+      let index = _.findIndex(currentChoosedCardsData, (o) => o.name == value[i]);
+      if (index > -1) {
+        choosedCardsData.push(currentChoosedCardsData[index]);
+      } else {
+        let data = await apis.getCard(value[i], this.state.choosedClass);
+        choosedCardsData.push(data);
+      }
     }
+
     this.setState({
       choosedCards: value,
       choosedCardsData: choosedCardsData
@@ -58,7 +62,7 @@ class ArenaCardsComparer extends React.Component {
   }
 
   render() {
-    const { choosedClass, searchedData, choosedCardsData, choosedCards } = this.state;
+    const { choosedClass, searchedData, choosedCardsData, choosedCards, isSearchLoading } = this.state;
     return (
       <div>
         <div style={{'textAlign': 'center'}}>
@@ -77,6 +81,7 @@ class ArenaCardsComparer extends React.Component {
             onSearch={this.onCardSearch}
             onChange={this.onCardChange}
             filterOption={false}
+            notFoundContent={isSearchLoading ? <Spin size="small" /> : null}
           >
             {searchedData.map((sd) => (
               <Select.Option key={sd.name} value={sd.name}>
@@ -90,8 +95,8 @@ class ArenaCardsComparer extends React.Component {
         <div style={{margin: '40px'}}>
           <Row gutter={16}>
             {choosedCardsData.map(ccd => (
-              <Col span={8} key={ccd.lightforge.name}>
-                <Card title={`${ccd.lightforge.cost} ${ccd.lightforge.name} [${ccd.lightforge.class}]`} bordered={false}>
+              <Col span={8} key={ccd.name}>
+                <Card title={`${ccd.cost} ${ccd.name} [${ccd.class}]`} bordered={false}>
                   <p>Lightforge: {ccd.lightforge.grade}级/{ccd.lightforge.score}分{ccd.lightforge.copiesLowerValue && '/不建议多张'}</p>
                   <p>Hearthstone: {ccd.heartharena.grade}级/{ccd.heartharena.score}分{ccd.heartharena.copiesLowerValue && '/不建议多张'}{ccd.heartharena.lowHigh && `/${ccd.heartharena.lowHigh}该职业`}</p>
                   {ccd.yingdi && <p>旅法师营地: {ccd.yingdi.catchRate}抓取率/{ccd.yingdi.score}分</p>}
