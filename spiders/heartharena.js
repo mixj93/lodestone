@@ -52,12 +52,13 @@ async function heartharena(cn) {
 
         let cardClass = cardTextEle.className.indexOf(className) > -1 ? classDisplayNames[className] : '中立';
 
+        let ulEle = card.parentElement.parentElement.parentElement.parentElement.parentElement;
         let cardRarity = '普通';
-        if (cardTextEle.className.indexOf('rares') > -1) {
+        if (ulEle.className.indexOf('rares') > -1) {
           cardRarity = '稀有';
-        } else if (cardTextEle.className.indexOf('epics')) {
+        } else if (ulEle.className.indexOf('epics') > -1) {
           cardRarity = '史诗';
-        } else if (cardTextEle.className.indexOf('legendaries')) {
+        } else if (ulEle.className.indexOf('legendaries') > -1) {
           cardRarity = '传说';
         }
 

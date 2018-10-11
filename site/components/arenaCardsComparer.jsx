@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Radio, Select, Tag, Card, Row, Col, Spin } from 'antd';
+import { Radio, Select, Tag, Card, Row, Col, Spin, Switch } from 'antd';
 import * as _ from 'lodash';
 import { CARD_CLASSES, CLASS_INFO } from '../data';
 import * as apis from '../apis';
@@ -83,13 +83,30 @@ class ArenaCardsComparer extends React.Component {
             filterOption={false}
             notFoundContent={isSearchLoading ? <Spin size="small" /> : null}
           >
-            {searchedData.map((sd) => (
-              <Select.Option key={sd.name} value={sd.name}>
-                <Tag color="#108ee9">{sd.cost}</Tag>
-                {sd.name}&nbsp;
-                <Tag color={sd.class !== '中立' ? CLASS_INFO[choosedClass].tagColor : ''}>{sd.class}</Tag>
-              </Select.Option>
-            ))}
+            {searchedData.map((sd) => {
+              let textColorClass = '';
+              switch(sd.rarity) {
+                case '传说':
+                  textColorClass = 'legendary';
+                  break;
+                case '史诗':
+                  textColorClass = 'epic';
+                  break;
+                case '稀有':
+                  textColorClass = 'rare';
+                  break;
+                default:
+                  textColorClass = '';
+              }
+
+              return (
+                <Select.Option key={sd.name} value={sd.name}>
+                  <Tag color="#108ee9">{sd.cost}</Tag>
+                  <span className={textColorClass}>{sd.name}</span>&nbsp;
+                  <Tag color={sd.class !== '中立' ? CLASS_INFO[choosedClass].tagColor : ''}>{sd.class}</Tag>
+                </Select.Option>
+              );
+            })}
           </Select>
         </div>
         <div style={{margin: '40px'}}>

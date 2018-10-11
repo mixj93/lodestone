@@ -58,9 +58,9 @@ async function lightforge(cn) {
         let cardRarity = '普通';
         if (cardOverlayEle.className.indexOf('rare') > -1) {
           cardRarity = '稀有';
-        } else if (cardOverlayEle.className.indexOf('epic')) {
+        } else if (cardOverlayEle.className.indexOf('epic') > -1) {
           cardRarity = '史诗';
-        } else if (cardOverlayEle.className.indexOf('legendary')) {
+        } else if (cardOverlayEle.className.indexOf('legendary') > -1) {
           cardRarity = '传说';
         }
 
