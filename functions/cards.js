@@ -1,7 +1,7 @@
 const _ = require("lodash");
 
 import { classes, classData } from './card';
-
+import { Z_DATA_ERROR } from "zlib";
 
 const dict = {
   "a": "阿啊唉挨哀哎埃爱碍艾隘癌矮蔼俺安氨庵鞍岸按案暗昂肮拗熬傲澳懊袄凹奥",
@@ -54,6 +54,8 @@ exports.handler = async (event, context) => {
   const className = event.queryStringParameters.class || "";
 
   if (className === "") {
+    console.warn(`[BAD REQUEST] ${new Date()} [${className}] Search with keyword: ${searchText}: Class name is empty.`);
+
     return {
       statusCode: 400,
       body: `Please specify name of class.`
@@ -61,6 +63,8 @@ exports.handler = async (event, context) => {
   }
 
   if (classes.indexOf(className) === -1) {
+    console.warn(`[NOT FOUND] ${new Date()} [${className}] Search with keyword: ${searchText}: Class not found.`);
+
     return {
       statusCode: 404,
       body: `Class not found.`
@@ -84,6 +88,8 @@ exports.handler = async (event, context) => {
       "cost": c.cost
     }
   });
+
+  console.log(`[OK] ${new Date()} [${className}] Search with keyword: ${searchText}, ${res.length} item(s) returned.`);
 
   return {
     statusCode: 200,

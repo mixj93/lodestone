@@ -93,6 +93,8 @@ exports.handler = async (event, context) => {
   const queryClass = event.queryStringParameters.class || "";
 
   if (cardName === "" || queryClass === "") {
+    console.warn(`[BAD REQUEST] ${new Date()} [${queryClass}] Get card: ${cardName}: Not specify a card name and as class.`);
+  
     return {
       statusCode: 400,
       body: `Please specify a card name and as class.`
@@ -100,6 +102,8 @@ exports.handler = async (event, context) => {
   }
 
   if (classes.indexOf(queryClass) === -1) {
+    console.warn(`[NOT FOUND] ${new Date()} [${queryClass}] Get card: ${cardName}: Class not found.`);
+  
     return {
       statusCode: 404,
       body: `Class not found.`
@@ -148,6 +152,8 @@ exports.handler = async (event, context) => {
     "catchRate": yd.catchRate,
     "score": yd.score
   } : null;
+
+  console.log(`[OK] ${new Date()} [${queryClass}] Get card: ${cardName}.`);
 
   return {
     statusCode: 200,
