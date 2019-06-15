@@ -10,13 +10,13 @@ async function lightforge(cn) {
   console.log(`${new Date()}  [lightforge] [${CLASS_NAMES[cn]}] Start fetching...`);
 
   const browser = await puppeteer.launch({
-    // devtools: true,
+    devtools: true,
     timeout: 0,
     defaultViewport: { width: 1920, height: 1080 }
   });
 
   const page = await browser.newPage();
-  await page.goto('http://thelightforge.com/zh-CN/TierList');
+  await page.goto('https://thelightforge.com/zh-CN/TierList');
 
   await page.evaluate((classNumber) => {
     // * 选择分类方式：经典
@@ -33,7 +33,7 @@ async function lightforge(cn) {
     document.querySelectorAll('.classSelect .classItem')[classNumber].click();
   }, cn);
 
-  await new Promise(r => setTimeout(r, 10000)); // * 等待10秒页面加载完成
+  await new Promise(r => setTimeout(r, 30000)); // * 等待10秒页面加载完成
 
   let cards = await page.evaluate((classNumber, classDisplayNames) => {
     let cardList = document.querySelectorAll('.card')

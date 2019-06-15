@@ -10,7 +10,7 @@ async function yingdi(cn) {
   console.log(`${new Date()}  [yingdi] [${CLASS_NAMES[cn]}] Start fetching...`);
 
   const browser = await puppeteer.launch({
-    // devtools: true,
+    devtools: true,
     timeout: 0,
     defaultViewport: { width: 1920, height: 1080 }
   });
