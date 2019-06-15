@@ -20,7 +20,7 @@
     "antd": "3.9.2",
     "axios": "0.18.0",
     "lodash": "4.17.11",
-    "puppeteer": "1.8.0",
+    "puppeteer": "1.17.0",
     "react": "16.5.0",
     "react-dom": "16.5.0"
   },
