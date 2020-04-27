@@ -14,7 +14,7 @@
     "build": "npm run clean && NODE_ENV=production parcel build site/index.html && netlify-lambda build functions"
   },
   "keywords": [],
-  "author": "mixj93 <lixueli93@gmail.com> (http://mixj93.com/)",
+  "author": "mixj93 <lixueli93@gmail.com> (https://xueli.li/)",
   "license": "MIT",
   "dependencies": {
     "antd": "3.9.2",

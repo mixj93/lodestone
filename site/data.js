@@ -1,81 +1,89 @@
 export const CARD_CLASSES = [
   {
-    'name': 'druid',
-    'text': '德鲁伊'
+    name: 'demon-hunter',
+    text: '恶魔猎手'
   },
   {
-    'name': 'hunter',
-    'text': '猎人'
+    name: 'druid',
+    text: '德鲁伊'
   },
   {
-    'name': 'mage',
-    'text': '法师'
+    name: 'hunter',
+    text: '猎人'
   },
   {
-    'name': 'paladin',
-    'text': '圣骑士'
+    name: 'mage',
+    text: '法师'
   },
   {
-    'name': 'priest',
-    'text': '牧师'
+    name: 'paladin',
+    text: '圣骑士'
   },
   {
-    'name': 'rogue',
-    'text': '盗贼'
+    name: 'priest',
+    text: '牧师'
   },
   {
-    'name': 'shaman',
-    'text': '萨满'
+    name: 'rogue',
+    text: '盗贼'
   },
   {
-    'name': 'warlock',
-    'text': '术士'
+    name: 'shaman',
+    text: '萨满'
   },
   {
-    'name': 'warrior',
-    'text': '战士'
+    name: 'warlock',
+    text: '术士'
+  },
+  {
+    name: 'warrior',
+    text: '战士'
   }
 ]
 
 export const CLASS_INFO = {
-  'druid': {
-    'text': '德鲁伊',
-    'tagColor': 'orange'
+  'demon-hunter': {
+    text: '恶魔猎手',
+    tagColor: 'lime'
   },
-  'hunter': {
-    'text': '猎人',
-    'tagColor': 'green'
+  druid: {
+    text: '德鲁伊',
+    tagColor: 'orange'
   },
-  'mage': {
-    'text': '法师',
-    'tagColor': 'blue'
+  hunter: {
+    text: '猎人',
+    tagColor: 'green'
   },
-  'paladin': {
-    'text': '圣骑士',
-    'tagColor': 'gold'
+  mage: {
+    text: '法师',
+    tagColor: 'blue'
   },
-  'priest': {
-    'text': '牧师',
-    'tagColor': 'magenta'
+  paladin: {
+    text: '圣骑士',
+    tagColor: 'gold'
   },
-  'rogue': {
-    'text': '盗贼',
-    'tagColor': 'cyan'
+  priest: {
+    text: '牧师',
+    tagColor: 'magenta'
   },
-  'shaman': {
-    'text': '萨满',
-    'tagColor': 'geekblue'
+  rogue: {
+    text: '盗贼',
+    tagColor: 'cyan'
   },
-  'warlock': {
-    'text': '术士',
-    'tagColor': 'purple'
+  shaman: {
+    text: '萨满',
+    tagColor: 'geekblue'
   },
-  'warrior': {
-    'text': '战士',
-    'tagColor': 'red'
+  warlock: {
+    text: '术士',
+    tagColor: 'purple'
   },
-  'neutral': {
-    'text': '中立',
-    'tagColor': ''
+  warrior: {
+    text: '战士',
+    tagColor: 'red'
+  },
+  neutral: {
+    text: '中立',
+    tagColor: ''
   }
 }
