@@ -20,7 +20,6 @@
     "antd": "^4.2.4",
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
-    "puppeteer": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -29,6 +28,7 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "less": "^3.11.1",
     "netlify-lambda": "^1.6.3",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "puppeteer": "^3.1.0"
   }
 }
