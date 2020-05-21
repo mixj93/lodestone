@@ -33,7 +33,7 @@ import ydWarrior from '../data/yingdi-warrior.json'
 
 const _ = require('lodash')
 
-const classes = [
+export const classes = [
   'demon-hunter',
   'druid',
   'hunter',
@@ -45,9 +45,9 @@ const classes = [
   'warlock',
   'warrior'
 ]
-exports.classes = classes
+// exports.classes = classes
 
-const classData = {
+export const classData = {
   'demon-hunter': {
     heartharena: haDemonHunter,
     lightforge: lfDemonHunter,
@@ -99,7 +99,7 @@ const classData = {
     yingdi: ydWarrior
   }
 }
-exports.classData = classData
+// exports.classData = classData
 
 /*
  * {"name":"“丛林猎人”赫米特","class":"中立","rarity":"史诗","score":65,"grade":3,"lowHigh":"","copiesLowerValue":false}
@@ -107,7 +107,7 @@ exports.classData = classData
  * {"name":"“丛林猎人”赫米特","catchRate":"0.4%","score":"115"}
  */
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   const cardName = event.queryStringParameters.name || ''
   const queryClass = event.queryStringParameters.class || ''
 

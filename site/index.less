@@ -1,6 +1,7 @@
 @import "../node_modules/antd/dist/antd.less"; // 引入官方提供的 less 样式入口文件
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 
@@ -9,9 +10,17 @@ html, body {
   }
 }
 
-.rare { color: #1890ff; }
-.epic { color: #722ed1; }
-.legendary { color: #fa8c16; }
+.rare {
+  color: #1890ff;
+}
+
+.epic {
+  color: #722ed1;
+}
+
+.legendary {
+  color: #fa8c16;
+}
 
 .site-header {
   padding: 0 20px;
@@ -32,7 +41,9 @@ html, body {
     height: 48px;
     line-height: 48px;
 
-    a { color: #fcd144; }
+    a {
+      color: #fcd144;
+    }
   }
 }
 
@@ -42,25 +53,17 @@ html, body {
   margin: 40px auto;
 
   .card-select {
-    .ant-select-selection__clear {
-      font-size: 20px;
-      top: 18px;
-
-      i {
-        font-style: normal;
-      }
-    }
-
-    .ant-select-selection__choice__remove {
+    .ant-select-selection-item-remove>.anticon {
+      position: relative;
       top: 9px;
     }
+  }
 
-    .ant-select-lg {
-      font-size: 14px;
+  .ant-select-lg {
+    font-size: 14px;
 
-      .ant-select-selection__choice__content {
-        line-height: 28px;
-      }
+    .ant-select-selection-item-content {
+      line-height: 28px;
     }
   }
 }
