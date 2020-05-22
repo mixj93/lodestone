@@ -1,35 +1,48 @@
 {
   "name": "lodestone",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "spider-all": "node spiders/trigger-all",
-    "spider-ha": "node spiders/trigger-ha",
-    "spider-lf": "node spiders/trigger-lf",
-    "spider-yd": "node spiders/trigger-yd",
-    "clean": "rm -rf dist/",
-    "start": "parcel site/index.html --no-cache",
-    "start-server": "netlify-lambda serve functions",
-    "build": "npm run clean && cross-env NODE_ENV=production parcel build site/index.html && netlify-lambda build functions"
-  },
-  "keywords": [],
-  "author": "mixj93 <lixueli93@gmail.com> (https://xueli.li/)",
-  "license": "MIT",
+  "version": "2.0.0",
+  "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "antd": "^4.2.4",
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-app-rewired": "^2.1.6",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "cross-env": "^7.0.2",
+    "customize-cra": "^0.9.1",
     "less": "^3.11.1",
+    "less-loader": "^5.0.0",
     "netlify-lambda": "^1.6.3",
-    "parcel-bundler": "^1.12.4",
     "puppeteer": "^3.1.0"
   }
 }
