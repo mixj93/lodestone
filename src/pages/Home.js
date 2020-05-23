@@ -19,22 +19,25 @@ import hsreplayIcon from '../assets/images/hsreplay.png'
 
 const cards = [
   {
+    id: 'arena',
     title: '竞技场选牌器',
     description: '包含Lightforge、Heartharena等多个网站数据',
     image: arenaImage,
     url: '/arena'
   },
   {
+    id: 'secrets',
     title: '奥秘考试秘籍',
     description: '小朋友，你是否有很多问号？',
     image: secretsImage,
-    url: '/secrets'
+    url: ''
   },
   {
+    id: 'zephrys',
     title: '杰弗里斯的许愿池',
     description: '杰弗里斯许愿卡牌一览',
     image: zephrysImage,
-    url: '/zephrys'
+    url: ''
   }
 ]
 
@@ -112,6 +115,7 @@ const LinksBlock = styled.div`
 
 const CardsBlockTitle = styled.h2`
   margin: 0;
+  font-size: 24px;
   text-align: center;
   grid-column-start: 1;
   grid-column-end: 4;
@@ -127,9 +131,9 @@ const Home = () => {
       <CardsBlock>
         <CardsBlockTitle>工具箱</CardsBlockTitle>
 
-        {cards.map(({ title, description, image, url }) => (
+        {cards.map(({ id, title, description, image, url }) => (
           <EntryCard
-            key={url}
+            key={id}
             title={title}
             description={description}
             image={image}

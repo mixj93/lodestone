@@ -16,8 +16,12 @@ Hearthstone arena cards compare helper. Data from [Lightforge](http://thelightfo
 
 - [x] Page 404
 - [x] Custom scrollbar style
-- [ ] Migrate arena helper
-- [ ] Migrate serverless functions
+- [x] Migrate arena helper
+- [x] Migrate serverless functions
+- [x] Migrate arena spiders
+- [ ] Add message form
+- [ ] Feature secrets
+- [ ] Feature zephrys
 
 ## Troubleshooting
 

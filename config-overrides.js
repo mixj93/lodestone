@@ -17,7 +17,7 @@ module.exports = override(
       '@text-color-secondary': '#8080A9', // 次文本色
       '@disabled-color': '#63638E', // 失效色
       '@border-radius-base': '4px', // 组件/浮层圆角
-      '@border-color-base': '#2A2A58', // 边框色
+      '@border-color-base': '#CACAEC', // 边框色
       '@box-shadow-base': '0 2px 8px rgba(55, 57, 118, 0.8)', // 浮层阴影
       '@btn-primary-bg': '#7064F0'
     }
