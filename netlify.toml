@@ -1,2 +1,4 @@
 [build]
-  functions = "dist/functions"
+  command = "yarn build"
+  functions = "built-lambda"
+  publish = "build"
