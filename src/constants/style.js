@@ -4,5 +4,6 @@ export const COLORS = {
   backgroundLighter: '#353569',
   text: '#CACAEC',
   textActive: '#fff',
-  textSecondary: '#8080A9'
+  textSecondary: '#8080A9',
+  highlight: '#7064F0'
 }

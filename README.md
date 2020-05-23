@@ -12,6 +12,13 @@ Hearthstone arena cards compare helper. Data from [Lightforge](http://thelightfo
 
 ### Secrets
 
+## Roadmap
+
+- [x] Page 404
+- [x] Custom scrollbar style
+- [ ] Migrate arena helper
+- [ ] Migrate serverless functions
+
 ## Troubleshooting
 
 ### Custom Antd theme

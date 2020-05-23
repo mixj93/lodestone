@@ -1,5 +1,6 @@
 const { override, addLessLoader } = require('customize-cra')
 
+// https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 module.exports = override(
   addLessLoader({
     javascriptEnabled: true,
@@ -17,7 +18,8 @@ module.exports = override(
       '@disabled-color': '#63638E', // 失效色
       '@border-radius-base': '4px', // 组件/浮层圆角
       '@border-color-base': '#2A2A58', // 边框色
-      '@box-shadow-base': '0 2px 8px rgba(55, 57, 118, 0.8)' // 浮层阴影
+      '@box-shadow-base': '0 2px 8px rgba(55, 57, 118, 0.8)', // 浮层阴影
+      '@btn-primary-bg': '#7064F0'
     }
   })
 )
