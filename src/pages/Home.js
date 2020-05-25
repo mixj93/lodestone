@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Row, Col } from 'antd'
 
 import { COLORS } from '../constants/style'
+import { below } from '../util/breakPoints'
 import EntryCard from '../components/EntryCard'
 import LinksList from '../components/LinksList'
+import MessageForm from '../components/MessageForm'
 
 import arenaImage from '../assets/images/arena.jpg'
 import secretsImage from '../assets/images/secrets.jpg'
@@ -26,17 +29,17 @@ const cards = [
     url: '/arena'
   },
   {
-    id: 'secrets',
-    title: '奥秘考试秘籍',
-    description: '小朋友，你是否有很多问号？',
-    image: secretsImage,
-    url: ''
-  },
-  {
     id: 'zephrys',
     title: '杰弗里斯的许愿池',
     description: '杰弗里斯许愿卡牌一览',
     image: zephrysImage,
+    url: ''
+  },
+  {
+    id: 'secrets',
+    title: '奥秘考试秘籍',
+    description: '小朋友，你是否有很多问号？',
+    image: secretsImage,
     url: ''
   }
 ]
@@ -98,56 +101,106 @@ const otherLinks = [
 ]
 
 const CardsBlock = styled.div`
-  padding: 40px 50px 80px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(${cards.length}, 240px);
-  grid-gap: 40px;
+  padding: 40px 50px;
+
+  ${below.md`
+    padding: 20px;
+  `}
 `
 
-const LinksBlock = styled.div`
-  padding: 60px 50px 80px;
+const LinksBlock = styled(CardsBlock)`
   background-color: ${COLORS.backgroundLighter};
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 40px 60px;
 `
 
-const CardsBlockTitle = styled.h2`
-  margin: 0;
+const BlockTitle = styled.h2`
+  margin: 0 0 40px 0;
   font-size: 24px;
   text-align: center;
-  grid-column-start: 1;
-  grid-column-end: 4;
+
+  ${below.md`
+    margin: 0 0 20px 0;
+  `}
 `
 
-const LinksBlockTitle = styled(CardsBlockTitle)`
-  grid-column-end: 3;
+const MessageBlock = styled(CardsBlock)`
+  background-color: #fff;
+  .ant-form-item-label label {
+    color: ${COLORS.background};
+  }
+  ${BlockTitle} {
+    color: ${COLORS.background};
+  }
+  input,
+  textarea {
+    color: ${COLORS.background};
+    border-color: ${COLORS.backgroundLighter};
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #9696c1;
+  }
+  input:hover,
+  input:focus,
+  textarea:hover,
+  textarea:focus,
+  .ant-input-focused {
+    border-color: ${COLORS.background};
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
 `
 
 const Home = () => {
   return (
     <div>
       <CardsBlock>
-        <CardsBlockTitle>工具箱</CardsBlockTitle>
-
-        {cards.map(({ id, title, description, image, url }) => (
-          <EntryCard
-            key={id}
-            title={title}
-            description={description}
-            image={image}
-            url={url}
-          />
-        ))}
+        <BlockTitle>工具箱</BlockTitle>
+        <Row>
+          <Col lg={{ push: 3, span: 18 }} xl={{ push: 4, span: 16 }}>
+            <Row
+              gutter={[
+                { xs: 20, sm: 20, md: 40 },
+                { xs: 20, sm: 20, md: 40 }
+              ]}
+            >
+              {cards.map(({ id, title, description, image, url }) => (
+                <Col key={id} xs={24} sm={12} md={8}>
+                  <EntryCard
+                    title={title}
+                    description={description}
+                    image={image}
+                    url={url}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Col>
+        </Row>
       </CardsBlock>
 
       <LinksBlock>
-        <LinksBlockTitle>快速链接</LinksBlockTitle>
-
-        <LinksList links={officialLinks} />
-        <LinksList links={otherLinks} />
+        <BlockTitle>快速链接</BlockTitle>
+        <Row>
+          <Col lg={{ push: 2, span: 20 }}>
+            <Row gutter={40}>
+              <Col sm={{ span: 12 }}>
+                <LinksList links={officialLinks} />
+              </Col>
+              <Col sm={{ span: 12 }}>
+                <LinksList links={otherLinks} />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </LinksBlock>
+
+      <MessageBlock>
+        <BlockTitle>留言</BlockTitle>
+        <Row>
+          <Col push={1} span={22} lg={{ push: 6, span: 12 }}>
+            <MessageForm />
+          </Col>
+        </Row>
+      </MessageBlock>
     </div>
   )
 }

@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Card } from 'antd'
+import { Card, Typography } from 'antd'
 
 import { COLORS } from '../constants/style'
 
 const StyledCard = styled(Card)`
-  width: 240px;
+  width: 100%;
   border-radius: 10px;
   overflow: hidden;
+
   .ant-card-body {
     height: 120px;
     background-color: ${COLORS.backgroundLight};
@@ -56,7 +57,14 @@ const EntryCard = ({ title, description, image, url }) => {
         bordered={false}
         cover={<img alt={title} src={image} />}
       >
-        <Card.Meta title={title} description={description} />
+        <Card.Meta
+          title={title}
+          description={
+            <Typography.Paragraph ellipsis={{ rows: 2 }}>
+              {description}
+            </Typography.Paragraph>
+          }
+        />
       </StyledCard>
     </Link>
   )

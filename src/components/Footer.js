@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Layout } from 'antd'
+
 import { COLORS } from '../constants/style'
+import { below } from '../util/breakPoints'
 
 const StyledFooter = styled(Layout.Footer)`
   text-align: center;
@@ -14,6 +16,10 @@ const StyledFooter = styled(Layout.Footer)`
       text-decoration: underline;
     }
   }
+
+  ${below.md`
+    padding: 20px;
+  `}
 `
 
 const Footer = () => {

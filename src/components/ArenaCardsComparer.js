@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Radio, Select, Tag, Card, Row, Col, Spin } from 'antd'
 import { debounce, findIndex } from 'lodash'
 
+import { below } from '../util/breakPoints'
 import { COLORS } from '../constants/style'
 import { CARD_CLASSES, CLASS_INFO } from '../constants/arena'
 import { getCard, searchCards } from '../apis/arena'
@@ -52,6 +53,12 @@ const RarityLabel = styled.span`
         return 'inherit'
     }
   }};
+`
+
+const StyledCol = styled(Col)`
+  ${below.sm`
+    margin-bottom: 20px;
+  `}
 `
 
 class ArenaCardsComparer extends React.Component {
@@ -133,7 +140,7 @@ class ArenaCardsComparer extends React.Component {
 
         <SelectWrapper>
           <Row>
-            <Col span={18} offset={3}>
+            <Col xs={{ span: 22, offset: 1 }} md={{ span: 18, offset: 3 }}>
               <StyledSelect
                 mode="multiple"
                 size="large"
@@ -187,11 +194,15 @@ class ArenaCardsComparer extends React.Component {
 
         <div>
           <Row>
-            <Col span={18} offset={3}>
+            <Col xs={{ span: 22, offset: 1 }} md={{ span: 18, offset: 3 }}>
               <Row gutter={16}>
                 {choosedCardsData.map((ccd) => {
                   return (
-                    <Col span={8} key={ccd.name}>
+                    <StyledCol
+                      xs={{ span: 12 }}
+                      sm={{ span: 8 }}
+                      key={ccd.name}
+                    >
                       <StyledCard
                         title={`${ccd.cost} ${ccd.name} [${ccd.class}]`}
                         bordered={false}
@@ -219,7 +230,7 @@ class ArenaCardsComparer extends React.Component {
                           </p>
                         )}
                       </StyledCard>
-                    </Col>
+                    </StyledCol>
                   )
                 })}
               </Row>

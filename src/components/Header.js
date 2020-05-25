@@ -3,13 +3,19 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Layout, Divider } from 'antd'
 
+import { below } from '../util/breakPoints'
 import { COLORS } from '../constants/style'
 
 const StyledHeader = styled(Layout.Header)`
   background-color: ${COLORS.background};
+
+  ${below.md`
+    padding: 0 20px;
+  `}
 `
 
 const Title = styled.h1`
+  font-size: 28px;
   float: left;
   margin: 0;
 `

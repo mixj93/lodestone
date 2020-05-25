@@ -8,9 +8,9 @@ module.exports = override(
       '@body-background': '#26264D', // Background color for `<body>`
       '@primary-color': '#fff', // 全局主色
       '@link-color': '#7064F0', // 链接色
-      '@success-color': '#52c41a', // 成功色
+      '@success-color': '#65B77F', // 成功色
       '@warning-color': '#faad14', // 警告色
-      '@error-color': '#f5222d', // 错误色
+      '@error-color': '#a61d24', // 错误色
       '@font-size-base': '14px', // 主字号
       '@heading-color': '#fff', // 标题色
       '@text-color': '#CACAEC', // 主文本色
