@@ -5,6 +5,7 @@ import { Layout, Divider } from 'antd'
 
 import { below } from '../util/breakPoints'
 import { COLORS } from '../constants/style'
+import logo from '../assets/images/logo.png'
 
 const StyledHeader = styled(Layout.Header)`
   background-color: ${COLORS.background};
@@ -39,11 +40,21 @@ const StyledLink = styled.a`
   }
 `
 
+const Logo = styled.img`
+  height: 48px;
+`
+
 const Header = () => {
   return (
     <StyledHeader>
       <Title>
-        <TitleLink to="/">LodeStone</TitleLink>
+        <TitleLink to="/">
+          <Logo
+            src={logo}
+            alt="LodeStone | 炉石传说工具箱"
+            title="LodeStone | 炉石传说工具箱"
+          />
+        </TitleLink>
       </Title>
       <Links>
         <StyledLink

@@ -36,7 +36,7 @@ const helpContent = () => (
 const Arena = () => {
   return (
     <div>
-      <Title level={2}>
+      <Title>
         竞技场选牌器
         <Popover content={helpContent} title="">
           <Icon>?</Icon>

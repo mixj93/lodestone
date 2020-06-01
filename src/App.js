@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Arena from './pages/Arena'
+import Zephrys from './pages/Zephrys'
 import Secrets from './pages/Secrets'
 
 import 'antd/dist/antd.dark.less'
@@ -34,6 +35,9 @@ function App() {
               </Route>
               <Route path="/arena">
                 <Arena />
+              </Route>
+              <Route path="/zephrys">
+                <Zephrys />
               </Route>
               <Route path="/secrets">
                 <Secrets />

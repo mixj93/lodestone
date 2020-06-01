@@ -33,7 +33,7 @@ const cards = [
     title: '杰弗里斯的许愿池',
     description: '杰弗里斯许愿卡牌一览',
     image: zephrysImage,
-    url: ''
+    url: '/zephrys'
   },
   {
     id: 'secrets',
