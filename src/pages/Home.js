@@ -37,10 +37,10 @@ const cards = [
   },
   {
     id: 'secrets',
-    title: '奥秘考试秘籍',
+    title: '奥秘考试宝典',
     description: '小朋友，你是否有很多问号？',
     image: secretsImage,
-    url: ''
+    url: '/secrets'
   }
 ]
 

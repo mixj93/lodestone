@@ -22,7 +22,8 @@ Hearthstone arena cards compare helper. Data from [Lightforge](http://thelightfo
 - [x] Add message form
 - [x] Design a logo
 - [x] Feature zephrys
-- [ ] Feature secrets
+- [x] Feature secrets
+- [ ] Back to top button
 
 ## Troubleshooting
 

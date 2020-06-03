@@ -10,6 +10,7 @@ const CardWrapper = styled.div`
 
 const AnimatedImg = styled(animated.img)`
   width: 160px;
+  max-width: 100%;
   will-change: transform;
   cursor: pointer;
   perspective-origin: center;

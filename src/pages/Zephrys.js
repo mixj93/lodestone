@@ -7,68 +7,6 @@ import Card from '../components/Card'
 import { COLORS } from '../constants/style'
 import { ZEPHRYS_CARDS, ZEPHRYS_KEYWORDS } from '../constants/zephrys'
 
-const Layout = styled.div`
-  margin: 40px 50px;
-
-  ${below.md`
-    margin: 0 0 20px 0;
-  `}
-`
-
-const Title = styled.h2`
-  text-align: center;
-  font-size: 24px;
-  margin: 0 0 40px 0;
-`
-
-const Row = styled.div`
-  position: relative;
-  background-color: ${COLORS.backgroundLight};
-  margin-bottom: 40px;
-`
-
-const RowTitle = styled.h2`
-  position: absolute;
-  width: 50px;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  background-color: ${COLORS.backgroundLighter};
-  color: ${COLORS.textActive};
-`
-
-const RowContent = styled.div`
-  margin-left: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-`
-
-const KeywordsWrapper = styled.div`
-  margin-bottom: 40px;
-  text-align: center;
-
-  .ant-tag-checkable:active,
-  .ant-tag-checkable-checked {
-    color: ${COLORS.background};
-    background-color: ${COLORS.text};
-  }
-`
-
-const KeywordsGroup = styled.div`
-  margin-bottom: 20px;
-`
-
-const ShortcutsGroup = styled.div`
-  button {
-    margin-right: 8px;
-  }
-`
-
 const Zephrys = () => {
   const [cards, setCards] = useState(ZEPHRYS_CARDS)
   const [selectedKeywords, setSelectedKeywords] = useState(ZEPHRYS_KEYWORDS)
@@ -92,8 +30,6 @@ const Zephrys = () => {
   }
 
   const handleKeywordChange = (keyword, checked) => {
-    console.log(keyword)
-
     const nextSelectedKeywords = checked
       ? [...selectedKeywords, keyword]
       : selectedKeywords.filter((kw) => kw !== keyword)
@@ -185,5 +121,71 @@ const Zephrys = () => {
     </Layout>
   )
 }
+
+export const Layout = styled.div`
+  margin: 40px 50px;
+
+  ${below.md`
+    margin: 0 10px 20px 10px;
+  `}
+`
+
+export const Title = styled.h2`
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 40px 0;
+`
+
+export const Row = styled.div`
+  position: relative;
+  background-color: ${COLORS.backgroundLight};
+  margin-bottom: 40px;
+`
+
+export const RowTitle = styled.h2`
+  position: absolute;
+  width: 50px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: ${COLORS.backgroundLighter};
+  color: ${COLORS.textActive};
+`
+
+export const RowContent = styled.div`
+  margin-left: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+
+  ${below.md`
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  `}
+`
+
+const KeywordsWrapper = styled.div`
+  margin-bottom: 40px;
+  text-align: center;
+
+  .ant-tag-checkable:active,
+  .ant-tag-checkable-checked {
+    color: ${COLORS.background};
+    background-color: ${COLORS.text};
+  }
+`
+
+const KeywordsGroup = styled.div`
+  margin-bottom: 20px;
+`
+
+const ShortcutsGroup = styled.div`
+  button {
+    margin-right: 8px;
+  }
+`
 
 export default Zephrys
