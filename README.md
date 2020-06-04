@@ -2,15 +2,21 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b9df4c78-4791-48a1-bf35-6d389a1d0ef4/deploy-status)](https://app.netlify.com/sites/lodestone/deploys)
 
+![lodestone](https://user-images.githubusercontent.com/12998118/83734681-e8814780-a681-11ea-8161-e7f44dbb887d.jpg)
+
 ## Features
 
 ### Arena
 
 Hearthstone arena cards compare helper. Data from [Lightforge](http://thelightforge.com/TierList), [Heartharena](https://www.heartharena.com/) and [旅法师营地](https://www.iyingdi.com/web/tools/hearthstone/arenaScore).
 
-![lodestone](https://user-images.githubusercontent.com/12998118/83388935-ede05700-a421-11ea-97a4-049d37b6345c.jpg)
+### Zephrys
+
+List all possible cards given by Zephrys the Great.
 
 ### Secrets
+
+List all possible secrets cards.
 
 ## Roadmap
 
