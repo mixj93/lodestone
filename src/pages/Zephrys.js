@@ -6,6 +6,7 @@ import { below } from '../util/breakPoints'
 import Card from '../components/Card'
 import { COLORS } from '../constants/style'
 import { ZEPHRYS_CARDS, ZEPHRYS_KEYWORDS } from '../constants/zephrys'
+import { useBackToTop } from '../hooks/useBackToTop'
 
 const Zephrys = () => {
   const [cards, setCards] = useState(ZEPHRYS_CARDS)
@@ -118,6 +119,8 @@ const Zephrys = () => {
           )}
         </React.Fragment>
       ))}
+
+      {useBackToTop()}
     </Layout>
   )
 }

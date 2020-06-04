@@ -2,7 +2,6 @@ export const SECRETS_TRIGGERS = [
   { name: 'play-a-minion', title: '使用随从' },
   { name: 'cast-a-spell', title: '施放法术' },
   { name: 'cast-a-spell-on-a-minion', title: '以随从为目标施放法术' },
-  { name: 'minion-attacks', title: '随从攻击' },
   { name: 'minion-attacks-hero', title: '随从攻击英雄' },
   { name: 'attack', title: '攻击' },
   { name: 'attack-hero', title: '攻击英雄' },
