@@ -147,6 +147,11 @@ const MessageBlock = styled(CardsBlock)`
     border-color: ${COLORS.background};
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
   }
+
+  *::selection {
+    color: ${COLORS.textActive};
+    background-color: ${COLORS.highlight};
+  }
 `
 
 const Home = () => {

@@ -4,10 +4,6 @@ import { Form, Input, Button, message } from 'antd'
 
 import { leaveMessgae } from '../apis/home'
 
-const CenterStyledItem = styled(Form.Item)`
-  text-align: center;
-`
-
 const MessageForm = () => {
   const formName = 'message'
   const formRef = useRef()
@@ -58,5 +54,9 @@ const MessageForm = () => {
     </Form>
   )
 }
+
+const CenterStyledItem = styled(Form.Item)`
+  text-align: center;
+`
 
 export default MessageForm
