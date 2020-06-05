@@ -2,6 +2,7 @@ export const SECRETS_TRIGGERS = [
   { name: 'play-a-minion', title: '使用随从' },
   { name: 'cast-a-spell', title: '施放法术' },
   { name: 'cast-a-spell-on-a-minion', title: '以随从为目标施放法术' },
+  { name: 'minion-attacks', title: '随从攻击' },
   { name: 'minion-attacks-hero', title: '随从攻击英雄' },
   { name: 'attack', title: '攻击' },
   { name: 'attack-hero', title: '攻击英雄' },
@@ -88,7 +89,7 @@ export const SECRETS_CARDS = [
       },
       {
         name: '冰冻陷阱',
-        secretTriggers: ['minion-attack'],
+        secretTriggers: ['minion-attacks'],
         cardRace: 'common',
         standard: true,
         flavorText:
@@ -539,7 +540,7 @@ export const SECRETS_CARDS = [
       },
       {
         name: '游荡怪物',
-
+        secretTriggers: ['attack-hero'],
         cardRace: 'rare',
         standard: false,
         flavorText: '并非所有游荡者都迷失了自我。然而这个肯定是迷失了。',
@@ -2966,7 +2967,7 @@ export const SECRETS_CARDS = [
       },
       {
         name: '叛变',
-        secretTriggers: [],
+        secretTriggers: ['minion-attacks-hero'],
         cardRace: 'common',
         standard: false,
         flavorText: '我把你当兄弟，你却想杀我？',

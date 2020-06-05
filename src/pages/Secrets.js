@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Radio, Button } from 'antd'
 
+import { useBackToTop } from '../hooks'
 import { Layout, Title, Row, RowTitle, RowContent } from './Zephrys'
 import { SECRETS_CARDS, SECRETS_TRIGGERS } from '../constants/secrets'
 import Card from '../components/Card'
@@ -133,6 +134,8 @@ const Secrets = () => {
           )}
         </React.Fragment>
       ))}
+
+      {useBackToTop()}
     </Layout>
   )
 }

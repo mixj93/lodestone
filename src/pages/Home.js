@@ -19,6 +19,7 @@ import yingdiIcon from '../assets/images/yingdi.png'
 import ngaIcon from '../assets/images/nga.png'
 import ashesIcon from '../assets/images/ashes.png'
 import hsreplayIcon from '../assets/images/hsreplay.png'
+import oocIcon from '../assets/images/ooc.png'
 
 const cards = [
   {
@@ -97,6 +98,12 @@ const otherLinks = [
     description: '超级好用的基于大数据卡牌、卡组、战棋网站和工具。',
     url: 'https://hsreplay.net/',
     icon: hsreplayIcon
+  },
+  {
+    title: 'Out of Cards',
+    description: '国外知名的卡牌游戏社区。',
+    url: 'https://outof.cards/',
+    icon: oocIcon
   }
 ]
 
