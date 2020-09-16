@@ -12,7 +12,8 @@ export const SECRETS_TRIGGERS = [
   { name: 'opponent-hero-takes-damage', title: '对方英雄受到伤害' },
   { name: 'opponent-hero-takes-fatal-damage', title: '对方英雄受到致命伤害' },
   { name: 'play-three-cards-in-a-turn', title: '一回合使用三张牌' },
-  { name: 'opponent-turn-starts', title: '对方回合开始' }
+  { name: 'opponent-turn-starts', title: '对方回合开始' },
+  { name: 'opponent-turn-ends', title: '对方回合结束' }
 ]
 
 export const SECRETS_CARDS = [
@@ -3156,6 +3157,73 @@ export const SECRETS_CARDS = [
         minionType: null,
         imageGold: '',
         artistName: 'David Kegg',
+        manaCost: 2
+      },
+      {
+        name: '抄袭',
+        secretTriggers: ['opponent-turn-ends'],
+        cardRace: 'common',
+        standard: true,
+        flavorText: '所谓抄袭，不过是“合理”地利用了你的资源。',
+        collectible: 1,
+        keywords: ['secret'],
+        battlegrounds: null,
+        keywordIds: [5],
+        pic:
+          'https://hearthstone.nosdn.127.net/hearthstone/32b811ca4405378de5726e7c09fefc611ef2a6c2dff6da9a528c2261f0785e2f.png',
+        childCards: null,
+        childIds: null,
+        multiClassIds: [],
+        golden: 0,
+        id: 59877,
+        cardTypeId: 5,
+        text:
+          '<b>奥秘：</b>在你对手的回合结束时，将其使用的卡牌的复制置入你的手牌。',
+        cardClass: 'rogue',
+        slug: '59877-plagiarize',
+        image:
+          'https://hearthstone.nosdn.127.net/hearthstone/32b811ca4405378de5726e7c09fefc611ef2a6c2dff6da9a528c2261f0785e2f.png',
+        neutralClass: null,
+        durability: null,
+        rarityId: 1,
+        dustValue: null,
+        armor: null,
+        background: '所谓抄袭，不过是“合理”地利用了你的资源。',
+        cardSet: 'scholomance-academy',
+        craftingCost: null,
+        cardId: 59877,
+        parentCard: null,
+        ids: null,
+        legacyKeywords: '法术,普通,通灵学园,潜行者,奥秘',
+        code: '59877-plagiarize',
+        artist: 'Matt Dixon',
+        description:
+          '<b>奥秘：</b>在你对手的回合结束时，将其使用的卡牌的复制置入你的手牌。',
+        consume: 0,
+        cropImage:
+          'https://hearthstone.nosdn.127.net/hearthstone/9ee32e053314b3b8adbb1eee820f291afee0d358d4a9b7303c944824e67b480c.png',
+        gain: 0,
+        classId: 7,
+        cardEffect: 'secret',
+        tier: null,
+        attack: null,
+        imageUrl:
+          'https://hearthstone.nosdn.127.net/hearthstone/32b811ca4405378de5726e7c09fefc611ef2a6c2dff6da9a528c2261f0785e2f.png',
+        cardRarity: 'common',
+        cardSetId: 1443,
+        minionTypeId: null,
+        cost: 2,
+        cardCode: '',
+        cardType: 'spell',
+        health: null,
+        updateTime: null,
+        parentId: null,
+        cardMultiClass: [],
+        createTime: null,
+        minionType: null,
+        imageGold: '',
+        artistName: 'Matt Dixon',
+        availableClassIds: [7],
         manaCost: 2
       },
       {

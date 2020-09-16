@@ -5,6 +5,8 @@ import { List, Avatar } from 'antd'
 const StyledListItem = styled(List.Item)`
   transition: all 0.3s;
   border-radius: 16px;
+  padding: 10px !important;
+  margin-bottom: 8px !important;
 
   &:hover {
     transform: scale(1.05);
@@ -13,10 +15,11 @@ const StyledListItem = styled(List.Item)`
   }
 `
 
-const LinksList = ({ links }) => {
+const LinksList = ({ grid, links }) => {
   return (
     <List
       itemLayout="horizontal"
+      grid={{ gutter: 32, xs: 1, sm: 1, md: 2, lg: 2, xl: 2, xxl: 2 }}
       dataSource={links}
       split={false}
       size="large"
