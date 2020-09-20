@@ -127,7 +127,7 @@ async function heartharena(cn) {
   // * Generate JSON File
   const cardsJson = JSON.stringify(cards)
   await fs.writeFile(
-    `./data/heartharena-${cn}.json`,
+    path.join(__dirname, `../data/heartharena-${cn}.json`),
     cardsJson,
     'utf8',
     function (err) {

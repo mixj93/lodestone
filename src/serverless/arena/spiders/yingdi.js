@@ -24,7 +24,7 @@ async function yingdi(cn) {
   const browser = await puppeteer.launch({
     devtools: true,
     timeout: 0,
-    defaultViewport: { width: 1440, height: 900 }
+    defaultViewport: { width: 1920, height: 1080 }
   })
 
   const page = await browser.newPage()
@@ -95,7 +95,7 @@ async function yingdi(cn) {
   // * Generate JSON File
   const cardsJson = JSON.stringify(allCards)
   await fs.writeFile(
-    `./data/yingdi-${CLASS_NAMES[cn]}.json`,
+    path.join(__dirname, `../data/yingdi-${CLASS_NAMES[cn]}.json`),
     cardsJson,
     'utf8',
     function (err) {

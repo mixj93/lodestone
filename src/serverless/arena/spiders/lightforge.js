@@ -160,7 +160,7 @@ async function lightforge(cn) {
   // * Generate JSON File
   const cardsJson = JSON.stringify(cards)
   await fs.writeFile(
-    `./data/lightforge-${CLASS_NAMES[cn]}.json`,
+    path.join(__dirname, `../data/lightforge-${CLASS_NAMES[cn]}.json`),
     cardsJson,
     'utf8',
     function (err) {
