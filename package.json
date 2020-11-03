@@ -6,7 +6,7 @@
     "start": "react-app-rewired start",
     "start:lambda": "netlify-lambda serve src/serverless/lambda",
     "build": "run-p build:**",
-    "build:app": "react-app-rewired build",
+    "build:app": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
     "build:lambda": "netlify-lambda build src/serverless/lambda",
     "spider-ha": "node src/serverless/arena/spiders/trigger-ha",
     "spider-lf": "node src/serverless/arena/spiders/trigger-lf",
